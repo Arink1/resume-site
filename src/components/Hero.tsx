@@ -1,9 +1,6 @@
 import { Profile } from "@/lib/types";
 
-export function Hero({ profile }: { profile: Profile | null }) {
-  const name = profile?.name || "Your Name";
-  const title = profile?.title || "Full Stack Developer";
-
+export function Hero({ profile }: { profile: Profile }) {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Subtle vignette overlay */}
@@ -14,42 +11,48 @@ export function Hero({ profile }: { profile: Profile | null }) {
           Hi, my name is
         </p>
         <h1 className="text-5xl sm:text-7xl font-bold mb-4 animate-fade-in-up parallax-slow">
-          {name}
+          {profile.name}
           <span className="gradient-text">.</span>
         </h1>
         <h2 className="text-2xl sm:text-4xl font-bold text-muted mb-6 animate-fade-in-up parallax-slow">
-          {title}
+          {profile.title}
         </h2>
         <p className="text-lg text-muted max-w-xl mx-auto mb-10 animate-fade-in-up parallax-fast">
-          I build production software for sales teams, healthcare brokers, and
-          small businesses. Calling and dialer platforms tuned for higher pickup
-          rates and conversions, plus the SaaS, CRM, and AI tooling that wraps
-          around them.
+          I build and ship production web apps with Next.js, React, and Python:
+          multi-tenant SaaS with Stripe and Twilio, lead-generation sites that
+          convert, and the Supabase and Django backends behind them. Everything
+          here is live and in use.
         </p>
-        <div className="flex items-center justify-center gap-4 animate-fade-in-up parallax-fast">
-          {profile?.github_url && (
-            <a
-              href={profile.github_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-accent text-accent hover:bg-accent/10 rounded-lg font-medium transition-colors"
-            >
-              GitHub
-            </a>
-          )}
-          {profile?.resume_url && (
+        <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up parallax-fast">
+          <a
+            href="#projects"
+            className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-colors"
+          >
+            See Projects
+          </a>
+          {profile.resume_url && (
             <a
               href={profile.resume_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-colors"
+              className="px-6 py-3 border border-accent text-accent hover:bg-accent/10 rounded-lg font-medium transition-colors"
             >
               Resume
             </a>
           )}
+          {profile.github_url && (
+            <a
+              href={profile.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 border border-border text-muted hover:text-foreground hover:border-accent/50 rounded-lg font-medium transition-colors"
+            >
+              GitHub
+            </a>
+          )}
           <a
             href="#contact"
-            className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-medium transition-colors"
+            className="px-6 py-3 border border-border text-muted hover:text-foreground hover:border-accent/50 rounded-lg font-medium transition-colors"
           >
             Get In Touch
           </a>

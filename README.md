@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# arinkarabulut.com
 
-## Getting Started
+Personal portfolio for Arin Karabulut, full-stack web developer. Live at
+[arinkarabulut.com](https://www.arinkarabulut.com).
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router) with React 19 and TypeScript
+- Tailwind CSS 4
+- Resend for the contact form
+- Claude API for the Brand Forge demo (`/demos/brand-forge`)
+- Vercel for hosting and analytics
+
+## How content works
+
+There is no CMS. Everything on the page is typed data in
+[`src/lib/content.ts`](src/lib/content.ts): profile, projects, skills, and
+experience. Identity and links (name, email, GitHub, LinkedIn, resume path)
+live in [`src/lib/site.ts`](src/lib/site.ts). Edit, commit, deploy.
+
+Each project can carry:
+
+- `live_url` and `github_url` for the action buttons
+- `iframe_url` for the scroll-linked live preview on the home page and the
+  detail page (falls back to `image_url` when a site blocks embedding)
+- `image_url` plus `images[]` for the gallery
+- `features`, `compliance`, and `security_features` lists
+- `code_snippet` and `code_language` to render source on the detail page
+
+Project screenshots live in `public/projects/<slug>/`. The resume PDF is served
+from `public/Arin_Karabulut_Resume.pdf`.
+
+## Routes
+
+| Route | What it is |
+| --- | --- |
+| `/` | Hero, about, projects, skills, experience, contact |
+| `/projects/[id]` | Project detail with live preview, gallery, and features |
+| `/demos/brand-forge` | Interactive Brand Forge demo backed by the Claude API |
+| `/api/contact` | Contact form handler (validates, escapes, sends via Resend) |
+| `/sitemap.xml`, `/robots.txt`, `/opengraph-image` | Generated |
+
+## Run locally
 
 ```bash
+npm install
+cp .env.example .env.local   # fill in RESEND_API_KEY and ANTHROPIC_API_KEY
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Used by |
+| --- | --- |
+| `RESEND_API_KEY` | `/api/contact` |
+| `CONTACT_TO_EMAIL` | Where contact messages are delivered (optional, has a default) |
+| `CONTACT_FROM_EMAIL` | Sender shown on contact emails (optional, has a default) |
+| `ANTHROPIC_API_KEY` | Brand Forge demo |
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is linked to Vercel. `vercel --prod` from the repo root deploys
+production.

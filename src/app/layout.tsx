@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GalaxyBackground } from "@/components/GalaxyBackground";
+import { site } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +17,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://www.arinkarabulut.com";
-const siteTitle = "Arin Karabulut | Software/AI Developer & Insurance Broker";
-const siteDescription =
-  "Software/AI developer and insurance broker building production software for sales teams, healthcare brokers, and small businesses. Calling and dialer platforms tuned for higher pickup rates and conversions, plus the SaaS, CRM, and AI tooling that wraps around them.";
+const siteUrl = site.url;
+const siteTitle = site.title;
+const siteDescription = site.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
   creator: "Arin Karabulut",
   keywords: [
     "Arin Karabulut",
-    "full stack engineer",
-    "AI engineer",
+    "full stack web developer",
     "Next.js developer",
-    "sales dialer software",
-    "power dialer",
-    "Twilio Voice SDK",
-    "multi-tenant SaaS",
-    "CRM software",
-    "OnlyDialer",
+    "React developer",
+    "TypeScript",
+    "Supabase",
+    "Stripe integration",
+    "Twilio",
+    "South Florida web developer",
+    "remote web developer",
   ],
   alternates: {
     canonical: siteUrl,
@@ -58,7 +58,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    creator: "@arinkarabulut",
   },
   robots: {
     index: true,

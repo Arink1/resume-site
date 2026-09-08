@@ -1,40 +1,16 @@
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Project, ProjectMedia } from "@/lib/types";
+import { ProjectMedia } from "@/lib/types";
 import { notFound } from "next/navigation";
 import { MediaGallery } from "@/components/MediaGallery";
 import { LivePreview } from "@/components/LivePreview";
 import { CodeBlock } from "@/components/CodeBlock";
-import { sampleProjects } from "@/lib/sample-data";
+import { projects } from "@/lib/content";
+import { site } from "@/lib/site";
 
-async function getProject(id: string) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const isConfigured = supabaseUrl && !supabaseUrl.includes("your-supabase");
-
-  if (!isConfigured) {
-    const project = sampleProjects.find((p) => p.id === id);
-    return { project: project || null, media: [] as ProjectMedia[] };
-  }
-
-  const { createServerClient } = await import("@/lib/supabase");
-  const supabase = createServerClient();
-
-  const [projectRes, mediaRes] = await Promise.all([
-    supabase.from("projects").select("*").eq("id", id).single<Project>(),
-    supabase
-      .from("project_media")
-      .select("*")
-      .eq("project_id", id)
-      .order("sort_order")
-      .returns<ProjectMedia[]>(),
-  ]);
-
-  return {
-    project: projectRes.data,
-    media: mediaRes.data || [],
-  };
+function getProject(id: string) {
+  const project = projects.find((p) => p.id === id);
+  return { project: project || null, media: [] as ProjectMedia[] };
 }
 
 export async function generateMetadata({
@@ -43,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const { project } = await getProject(id);
+  const { project } = getProject(id);
 
   if (!project) {
     return { title: "Project not found" };
@@ -51,7 +27,7 @@ export async function generateMetadata({
 
   const title = project.title;
   const description = project.description || project.long_description || "";
-  const url = `https://www.arinkarabulut.com/projects/${project.id}`;
+  const url = `${site.url}/projects/${project.id}`;
 
   return {
     title,
@@ -78,7 +54,7 @@ export default async function ProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const { project, media } = await getProject(id);
+  const { project, media } = getProject(id);
 
   if (!project) notFound();
 

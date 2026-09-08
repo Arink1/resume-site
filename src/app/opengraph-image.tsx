@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Arin Karabulut, Software/AI Developer & Insurance Broker building production software for sales teams.";
+  "Arin Karabulut, full-stack web developer building production Next.js, React, and Python applications.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default async function OpengraphImage() {
             marginBottom: 32,
           }}
         >
-          Software/AI Developer & Insurance Broker
+          Full-Stack Web Developer
         </div>
         <div
           style={{
@@ -65,8 +65,8 @@ export default async function OpengraphImage() {
             maxWidth: 1000,
           }}
         >
-          Building production software for sales teams. Calling and dialer
-          platforms tuned for higher pickup rates and conversions.
+          Next.js, React, and Python apps in production: multi-tenant SaaS,
+          lead-generation sites, and the backends behind them.
         </div>
       </div>
     ),
