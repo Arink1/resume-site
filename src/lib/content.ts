@@ -177,7 +177,7 @@ export const projects: Project[] = [
       "Vercel",
     ],
     category: "Web App",
-    github_url: "",
+    github_url: "https://github.com/Arink1/hg-network",
     live_url: "https://hgcrafting.vercel.app",
     video_url: "",
     features: [
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "Claude API",
     ],
     category: "Web App",
-    github_url: "",
+    github_url: "https://github.com/Arink1/legalhelp911",
     live_url: "https://legalhelp911.vercel.app",
     video_url: "",
     features: [
@@ -248,7 +248,7 @@ export const projects: Project[] = [
       "AWS Elastic Beanstalk (v1)",
     ],
     category: "Web App",
-    github_url: "",
+    github_url: "https://github.com/Arink1/arinhealthagent-site",
     live_url: "https://arinhealthagent.com",
     video_url: "",
     features: [
@@ -276,7 +276,7 @@ export const projects: Project[] = [
     image_url: "/projects/bryanhealthagent/bryanhealthagent.png",
     tech_stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Vercel"],
     category: "Web App",
-    github_url: "",
+    github_url: "https://github.com/Arink1/bryanhealthagent-site",
     live_url: "https://bryanhealthagent.com",
     video_url: "",
     features: [
@@ -411,7 +411,7 @@ export const projects: Project[] = [
     image_url: "/projects/marijuana-land/marijuanaland-next.png",
     tech_stack: ["Next.js", "React", "Tailwind CSS", "WordPress", "PHP", "MySQL", "Docker"],
     category: "Web App",
-    github_url: "",
+    github_url: "https://github.com/Arink1/marijuanaland-next",
     live_url: "https://marijuanaland-next.vercel.app",
     video_url: "",
     features: [
