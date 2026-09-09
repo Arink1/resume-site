@@ -433,12 +433,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "wingwong",
-    title: "WingWong Finance",
+    id: "ai-trading-bot",
+    title: "AI Trading Bot",
     description:
       "Desktop trading assistant with a Python signal engine and a React dashboard. Blends technical, news, and macro signals with LLM-written explanations.",
     long_description:
-      "WingWong Finance is a desktop trading app with a Python backend and a React frontend. The signal engine scores equities and crypto by blending technical indicators, news sentiment, and macro factors, and a language model (a local Ollama model or the Claude API) writes the sentiment read and a plain-English explanation for each signal. Market data comes from yfinance and CCXT, and a backtesting module replays strategies against history. The React dashboard is deployed on Vercel for the demo below and runs alongside the Python API on the desktop.",
+      "AI Trading Bot is a desktop trading app with a Python backend and a React frontend. The signal engine scores equities and crypto by blending technical indicators, news sentiment, and macro factors, and a language model (a local Ollama model or the Claude API) writes the sentiment read and a plain-English explanation for each signal. Market data comes from yfinance and CCXT, and a backtesting module replays strategies against history. The React dashboard is deployed on Vercel for the demo below and runs alongside the Python API on the desktop.",
     image_url: "",
     tech_stack: ["Python", "React", "Vite", "Tailwind CSS", "yfinance", "CCXT", "Ollama", "Claude API"],
     category: "AI/ML",
