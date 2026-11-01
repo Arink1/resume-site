@@ -30,16 +30,6 @@ export function Hero({ profile }: { profile: Profile }) {
           >
             See Projects
           </a>
-          {profile.resume_url && (
-            <a
-              href={profile.resume_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border border-accent text-accent hover:bg-accent/10 rounded-lg font-medium transition-colors"
-            >
-              Resume
-            </a>
-          )}
           {profile.github_url && (
             <a
               href={profile.github_url}

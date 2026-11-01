@@ -7,6 +7,7 @@ export const site = {
   description:
     "Full-stack web developer in South Florida building production Next.js, React, and Python applications. Multi-tenant SaaS with Twilio and Stripe, lead-generation sites, Supabase backends, and AI integrations, shipped on Vercel.",
   email: "akinsuranceagent@gmail.com",
+  phone: "(954) 812-2577",
   github: "https://github.com/Arink1",
   // Set to a full profile URL (https://www.linkedin.com/in/...) to show LinkedIn links.
   linkedin: "",

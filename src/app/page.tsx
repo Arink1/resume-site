@@ -5,6 +5,7 @@ import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { profile, projects, skills, experiences } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <Projects projects={projects} />
       <Skills skills={skills} />
       <Experience experiences={experiences} />
-      <Contact email={profile.email} />
+      <Contact email={profile.email} phone={site.phone} />
     </>
   );
 }

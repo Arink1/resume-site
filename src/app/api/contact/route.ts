@@ -5,7 +5,13 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "akinsuranceagent@gmail.com";
+// Comma-separated; every address gets each message.
+const CONTACT_TO_EMAILS = (
+  process.env.CONTACT_TO_EMAIL ?? "akinsuranceagent@gmail.com,arin_karabulut9@hotmail.com"
+)
+  .split(",")
+  .map((address) => address.trim())
+  .filter(Boolean);
 const CONTACT_FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL ?? "Arin Karabulut Portfolio <onboarding@resend.dev>";
 
@@ -133,7 +139,7 @@ export async function POST(request: Request) {
   try {
     const { error } = await resend.emails.send({
       from: CONTACT_FROM_EMAIL,
-      to: CONTACT_TO_EMAIL,
+      to: CONTACT_TO_EMAILS,
       subject,
       text,
       html,

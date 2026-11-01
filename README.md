@@ -55,7 +55,7 @@ Open http://localhost:3000.
 | Name | Used by |
 | --- | --- |
 | `RESEND_API_KEY` | `/api/contact` |
-| `CONTACT_TO_EMAIL` | Where contact messages are delivered (optional, has a default) |
+| `CONTACT_TO_EMAIL` | Where contact messages are delivered; comma-separate several addresses (optional, has a default) |
 | `CONTACT_FROM_EMAIL` | Sender shown on contact emails (optional, has a default) |
 | `ANTHROPIC_API_KEY` | Brand Forge demo |
 

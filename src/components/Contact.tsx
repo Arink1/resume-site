@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 
-export function Contact({ email }: { email?: string }) {
+export function Contact({ email, phone }: { email?: string; phone?: string }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -192,15 +192,32 @@ export function Contact({ email }: { email?: string }) {
           </ScrollReveal>
         )}
 
-        {email && (
+        {(email || phone) && (
           <p className="text-center text-muted text-sm mt-6">
-            Or reach me directly at{" "}
-            <a
-              href={`mailto:${email}`}
-              className="text-accent hover:text-accent-light"
-            >
-              {email}
-            </a>
+            Or reach me directly
+            {phone && (
+              <>
+                {" "}by phone at{" "}
+                <a
+                  href={`tel:+1${phone.replace(/\D/g, "")}`}
+                  className="text-accent hover:text-accent-light whitespace-nowrap"
+                >
+                  {phone}
+                </a>
+              </>
+            )}
+            {phone && email && " or"}
+            {email && (
+              <>
+                {" "}by email at{" "}
+                <a
+                  href={`mailto:${email}`}
+                  className="text-accent hover:text-accent-light"
+                >
+                  {email}
+                </a>
+              </>
+            )}
           </p>
         )}
       </div>

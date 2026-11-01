@@ -10,7 +10,6 @@ const navLinks = [
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
-  { href: "/Arin_Karabulut_Resume.pdf", label: "Resume" },
 ];
 
 export function Navbar() {

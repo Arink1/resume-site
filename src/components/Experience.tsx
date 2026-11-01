@@ -2,9 +2,12 @@ import { Experience as ExperienceType } from "@/lib/types";
 import { ScrollReveal } from "./ScrollReveal";
 
 function formatDate(dateStr: string) {
+  // Dates are stored as YYYY-MM-DD (parsed as UTC midnight); format in UTC so
+  // a local time zone behind UTC doesn't show the previous month.
   return new Date(dateStr).toLocaleDateString("en-US", {
     month: "short",
     year: "numeric",
+    timeZone: "UTC",
   });
 }
 
@@ -16,7 +19,7 @@ export function Experience({
   const sorted = [...experiences].sort((a, b) => a.sort_order - b.sort_order);
 
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-24 overflow-x-clip">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <h2 className="text-3xl font-bold mb-2">
